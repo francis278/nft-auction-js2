@@ -243,7 +243,7 @@ contract Auction is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         require(msg.value >= auctionInfo.startingPrice, "Bid too low");
         // ========== 新增：美元价值比较逻辑 ==========
         if (previousBidder != address(0)) {
-            // 不是第一个出价：比较美元价值
+            //     // 不是第一个出价：比较美元价值
             uint256 currentBidUsd = getUsdValue(previousToken, previousBid);
             uint256 newBidUsd = getUsdValue(address(0), msg.value);
             require(newBidUsd > currentBidUsd, "Bid USD value too low");

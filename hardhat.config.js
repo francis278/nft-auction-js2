@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@openzeppelin/hardhat-upgrades");
+require("solidity-coverage");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -12,12 +13,21 @@ module.exports = {
       }
     }
   },
+  paths: {
+    sources: "./contracts",
+    tests: "./test",
+    cache: "./cache",
+    artifacts: "./artifacts"
+  },
   networks: {
     // 本地网络 - 不需要私钥
     localhost: {
       url: "http://127.0.0.1:8545",
       chainId: 31337
     },
+    coverage: {
+      url: "http://127.0.0.1:8555",
+    }
     // 注释掉或修复 Sepolia 配置
     /*
     sepolia: {
